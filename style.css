@@ -12,7 +12,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Footer với logo trái phải */
+/* Footer với logo */
 .contest-info {
     text-align: center;
     margin-top: 40px;
@@ -347,34 +347,34 @@ header h1 {
 }
 
 .leaf.gradient-1 { 
-    background-image: url('https://yawning-fuchsia-pf3phfwma8.edgeone.app/leaf.png');
+    background-image: url('https://i.postimg.cc/3JKqh6fs/leaf.png');
 }
 .leaf.gradient-2 { 
-    background-image: url('https://yawning-fuchsia-pf3phfwma8.edgeone.app/leaf.png');
+    background-image: url('https://i.postimg.cc/3JKqh6fs/leaf.png');
     filter: hue-rotate(90deg) drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
 }
 .leaf.gradient-3 { 
-    background-image: url('https://yawning-fuchsia-pf3phfwma8.edgeone.app/leaf.png');
+    background-image: url('https://i.postimg.cc/3JKqh6fs/leaf.png');
     filter: hue-rotate(180deg) drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
 }
 .leaf.gradient-4 { 
-    background-image: url('https://yawning-fuchsia-pf3phfwma8.edgeone.app/leaf.png');
+    background-image: url('https://i.postimg.cc/3JKqh6fs/leaf.png');
     filter: hue-rotate(270deg) drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
 }
 .leaf.gradient-5 { 
-    background-image: url('https://yawning-fuchsia-pf3phfwma8.edgeone.app/leaf.png');
+    background-image: url('https://i.postimg.cc/3JKqh6fs/leaf.png');
     filter: hue-rotate(45deg) brightness(1.2) drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
 }
 .leaf.gradient-6 { 
-    background-image: url('https://yawning-fuchsia-pf3phfwma8.edgeone.app/leaf.png');
+    background-image: url('https://i.postimg.cc/3JKqh6fs/leaf.png');
     filter: hue-rotate(135deg) brightness(1.1) drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
 }
 .leaf.gradient-7 { 
-    background-image: url('https://yawning-fuchsia-pf3phfwma8.edgeone.app/leaf.png');
+    background-image: url('https://i.postimg.cc/3JKqh6fs/leaf.png');
     filter: hue-rotate(225deg) saturate(1.5) drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
 }
 .leaf.gradient-8 { 
-    background-image: url('https://yawning-fuchsia-pf3phfwma8.edgeone.app/leaf.png');
+    background-image: url('https://i.postimg.cc/3JKqh6fs/leaf.png');
     filter: hue-rotate(315deg) contrast(1.2) drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
 }
 
@@ -543,7 +543,7 @@ header h1 {
     box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
 }
 
-/* Mobile First Approach */
+/* Mobile  */
 @media (max-width: 768px) {
     .modal {
         padding: 5px;
@@ -629,7 +629,7 @@ header h1 {
     padding-bottom: 20px;
 }
 
-/* Fix cho iOS Safari */
+/* iOS Safari */
 @supports (-webkit-touch-callout: none) {
     .modal {
         height: -webkit-fill-available;
