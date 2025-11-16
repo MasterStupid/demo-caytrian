@@ -1,4 +1,4 @@
-// Leaf images - SỬ DỤNG HÌNH LÁ CỦA BẠN
+// HÌNH LÁ 
 const LEAF_IMAGES = [
     { 
         url: 'https://i.ibb.co/dwSTjRYr/Leaf.png', 
@@ -6,7 +6,7 @@ const LEAF_IMAGES = [
     },
 ];
 
-// VỊ TRÍ PIXEL CỐ ĐỊNH - ĐIỀU CHỈNH THEO CÂY CỦA BẠN
+// VỊ TRÍ  CỐ ĐỊNH CỦA LÁ TRÊN CÂY
 const FIXED_POSITIONS = [
     { x: 445, y: 317 },  // 1
     { x: 442, y: 291 },  // 2
@@ -142,7 +142,7 @@ function initializeApp() {
     loadLeaves();
     updateStats();
     renderLeaves();
-    add125LeavesButton();
+    add97LeavesButton();
     setupEventListeners();
     showLoading(false);
 }
@@ -369,7 +369,7 @@ function truncateText(text, maxLength) {
     return text.substring(0, maxLength) + '...';
 }
 
-// Setup click handlers for leaves - CHỈ CLICK MỚI HIỆN THÔNG TIN CHI TIẾT
+// Setup click handlers for leaves 
 function setupLeafClickHandlers() {
     if (!leavesContainer) return;
     
@@ -387,7 +387,7 @@ function setupLeafClickHandlers() {
     });
 }
 
-// Show leaf details - HIỂN THỊ THÔNG TIN CHI TIẾT KHI CLICK
+// HIỂN THỊ THÔNG TIN CHI TIẾT KHI CLICK
 function showLeafDetail(leaf) {
     if (!leaf) return;
     
@@ -417,7 +417,7 @@ function showLeafDetail(leaf) {
     showSuccessMessage(message, false, 10000);
 }
 
-// Global function để hiển thị thông báo - DESIGN ĐẸP HƠN
+// Global function để hiển thị thông báo 
 function showSuccessMessage(message, isError = false, duration = 4000) {
     const oldMsg = document.querySelector('.success-message');
     if (oldMsg) oldMsg.remove();
@@ -522,20 +522,20 @@ messageStyle.textContent = `
 `;
 document.head.appendChild(messageStyle);
 
-// Thêm nút 125 lá vào giao diện
-function add125LeavesButton() {
+// Thêm nút toàn bộ lá vào giao diện
+function add97LeavesButton() {
     const actionSection = document.querySelector('.action-section');
     if (!actionSection) return;
     
     const btn = document.createElement('button');
-    btn.innerHTML = '🚀 THÊM 125 LÁ';
-    btn.className = 'add-leaf-btn simple-125-btn';
+    btn.innerHTML = '🚀 THÊM TOÀN BỘ LÁ';
+    btn.className = 'add-leaf-btn simple-97-btn';
     btn.style.background = 'linear-gradient(135deg, #2196F3, #21CBF3)';
     btn.style.margin = '5px 0';
     
     btn.addEventListener('click', async function() {
-        if (confirm('Tạo 125 lá tri ân tự động?\n\nMỗi lá sẽ có:\n• SV 1 → SV 125\n• Giáo viên 1 → Giáo viên 10\n• Tri ân 1 → Tri ân 125')) {
-            await create125Leaves();
+        if (confirm('Thêm đầy đủ các lá tri ân tự động?')) {
+            await create97Leaves();
         }
     });
     
@@ -544,9 +544,9 @@ function add125LeavesButton() {
     addLeafBtn.parentNode.insertBefore(btn, addLeafBtn.nextSibling);
 }
 
-// Hàm tạo 125 lá đơn giản
-async function create125Leaves() {
-    console.log('🍃 Đang tạo 125 lá...');
+// Hàm tạo 97 lá
+async function create97Leaves() {
+    console.log('🍃 Đang tạo toàn bộ lá...');
     
     for(let i = 1; i <= 97; i++) {
         await new Promise(resolve => setTimeout(resolve, 50));
@@ -555,62 +555,6 @@ async function create125Leaves() {
     
     // Thông báo khi hoàn thành
     setTimeout(() => {
-        showSuccessMessage('🎉 Đã tạo thành công 125 lá tri ân!', false, 4000);
+        showSuccessMessage('🎉 Thay lời toàn thể sinh viên trường Đại học Hải Phòng em xin xin kính chúc quý Thầy Cô luôn dồi dào sức khỏe, hạnh phúc, và tiếp tục gặt hái nhiều thành công trong sự nghiệp trồng người cao quý! ❤', false, 4000);
     }, 1000);
-}
-
-// Các hàm debug
-let positionCount = FIXED_POSITIONS.length + 1;
-let isGettingPositions = false;
-
-console.log(`🎯 Gõ startGetPositions() để bắt đầu lấy tọa độ liên tục`);
-
-function startGetPositions() {
-    const treeContainer = document.querySelector('.tree-container');
-    isGettingPositions = true;
-    positionCount = FIXED_POSITIONS.length + 1;
-    
-    console.log(`🚀 BẮT ĐẦU lấy tọa độ liên tục...`);
-    console.log(`📝 Click vào cây để lấy vị trí thứ ${positionCount}`);
-    console.log(`⏹️  Gõ stopGetPositions() để dừng`);
-    
-    treeContainer.addEventListener('click', function clickHandler(e) {
-        if (!isGettingPositions) return;
-        
-        const rect = treeContainer.getBoundingClientRect();
-        const x = Math.round(e.clientX - rect.left);
-        const y = Math.round(e.clientY - rect.top);
-        
-        console.log(` ${positionCount}. { x: ${x}, y: ${y} },`);
-        
-        // Hiện chấm đỏ
-        const dot = document.createElement('div');
-        dot.style.cssText = `
-            position: absolute;
-            left: ${x}px;
-            top: ${y}px;
-            width: 8px;
-            height: 8px;
-            background: red;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
-            border: 2px solid white;
-            box-shadow: 0 0 0 1px red;
-        `;
-        
-        treeContainer.appendChild(dot);
-        positionCount++;
-    });
-}
-
-function stopGetPositions() {
-    isGettingPositions = false;
-    console.log(`🛑 ĐÃ DỪNG lấy tọa độ`);
-}
-
-function clearDots() {
-    const dots = document.querySelectorAll('[style*="background: red"]');
-    dots.forEach(dot => dot.remove());
-    console.log('✅ Đã xóa tất cả chấm đỏ');
 }
